@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crop yield Prediction</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <style>
+    body {
+            text-align: center;
+            color: black;
+            /* background-color: bisque; */
+            background:linear-gradient(violet,yellow,violet);
+            vertical-align: middle;
+            font-family: 'Abyssinica SIL', serif;
+            /* border: 2px solid red ;  */
+        }
+        .navbar {
+          background-color: bisque; /* Replace #ff0000 with the desired color code */
+                }
+
+    
+    #bg{
+      background-size: 1600px 828px;
+      background-repeat: no-repeat;
+      background-position: top;
+      background-attachment: fixed;
+  }
+
+  h1 {
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+    font-size: 2.5em;
+    text-align: center;
+  }
+  </style>
+
+  </head>
+  <body >
+    <nav class="navbar" class="navbar navbar-light bg-light">
+      <form class="container-fluid justify-content-start">
+        <!-- <button class="btn btn-outline-success me-2" type="button">Go Back to Board</button> -->
+        <a href="/{{ user_id }}/board" ><button class="btn btn-outline-success me-2" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1H3.707l10.147 10.146a.5.5 0 0 1-.708.708L3 3.707V8.5a.5.5 0 0 1-1 0v-6z"/>
+          </svg>Go Back to Board</button></a>
+          <a href="/{{ user_id }}/list/{{ list_id}}/download"> <button type="button" class="btn btn-outline-danger me-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/>
+            </svg>
+            Download Form and Predictions
+          </button></a>
+      </form>
+    </nav>
+    <div class="container">
+<br><br><br><br>
+        <h1>Best crops for these conditions are</h1>
+        <ul>
+          {% for crop in prediction_text  %}
+              <h1><li>{{ crop }}</li></h1>
+          {% endfor %}
+      </ul>
+    </div>
+    <br>
+    <img src={{ bar_path }} >
+    <br>
+    <div>
+      <h1>Best Practices for maximum production according to parameters .</h1>
+      <h2>{{ answer }}</h2>
+    </div>
+    <br>
+    <div>
+      
+    </div>
+    
+  </body>
+</html>

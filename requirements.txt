@@ -1,0 +1,7 @@
+Flask==2.2
+Flask-SQLAlchemy==3.0.3
+flask-restful
+matplotlib
+pandas
+python-dateutil
+reportlab

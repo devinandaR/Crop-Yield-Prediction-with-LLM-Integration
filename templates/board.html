@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Antic' rel='stylesheet'>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+  <style>
+    body {
+      text-align: center;
+      color: black;
+      /* background-color: bisque; */
+      background:linear-gradient(violet,yellow,violet);
+      vertical-align: middle;
+      font-family: 'Abyssinica SIL', serif;
+      /* border: 2px solid red ;  */
+    }
+
+    .navbar {
+      /* border: 2px solid red; */
+      background-color: rgb(216, 196, 233);
+    }
+
+    .col {
+      max-width: 29vw;
+      border: 2px solid rgb(2, 0, 3);
+      text-align: center;
+      background-color: rgb(173, 134, 205);
+      border-radius: 30px;
+      padding: 5px;
+      margin: 20px;
+      /* padding-top: -5px; */
+      box-shadow: 10px 10px 5px rgb(199, 177, 217);
+      height: fit-content;
+
+
+
+    }
+
+    #list_header {
+      /* border: 2px solid red; */
+      margin: 20px;
+      padding: 10px;
+    }
+
+    a {
+      color: black;
+      text-decoration: none;
+
+    }
+
+    a:hover {
+      color: black;
+    }
+
+    .list-button {
+      margin: .2vw;
+    }
+
+    #Cards {
+      border: 2px solid red;
+    }
+
+    .card {
+      /* margin-left: 2vw; */
+      border: 1vw solid violet;
+      margin: 0.5vw;
+      /* padding: -5vw; */
+      box-shadow: 10px 10px 5px rgb(60, 46, 73);
+      /* align-self: center;
+      vertical-align: middle; */
+      background-color: bisque;
+    }
+
+    .c-button {
+      margin: .2vw;
+    }
+
+    .incomplete-button {
+      background-color: rgb(242, 14, 14);
+    }
+
+    .edit-card {
+      size: 10vw;
+    }
+
+    #card-ops {
+      inline-size: auto;
+    }
+
+    span.a {
+      display: inline;
+      /* the default for span */
+      padding: 1vw;
+    }
+
+    .icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      position: absolute;
+      right: -5px;
+      top: -5px;
+      margin-top: .5vw;
+      margin-right: 1vw;
+    }
+
+    .icon1 {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      position: absolute;
+      left: -5px;
+      top: -5px;
+      margin-top: .5vw;
+      margin-left: 1vw;
+    }
+
+    li {
+      text-align: center;
+    }
+
+    .dropdown-meu {
+      color: black;
+      background-color: bisque;
+      border: bisque;
+    }
+
+    .dropdown {
+      margin-top: .2vw;
+    }
+    .download{
+      padding:.5vw;
+      margin:0.5vw;
+    }
+    .download:hover{
+      color: white;
+    }
+    
+    .list-button{
+      color: black;
+    }
+    .c-update{
+      background-color: rgb(60, 55, 55);
+    }
+    hr.new1 {
+      border-top: 3px solid rgb(60, 55, 55);
+    }
+  </style>
+
+</head>
+
+<body>
+  <h1 id="welcome">Welcome {{ b_name }}</h1>
+  
+
+  <nav class="navbar navbar-expand-lg bg">
+    <div class="container-fluid">
+      <a href="/{{ user_id}}/list/create" class="btn btn-outline-dark btn-lg list-button">Create New Prediction Form</a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        </ul>
+        <form class="d-flex" role="search" ame="form1" method="get" action="/">
+          <button class="btn btn-outline-dark btn-lg list-button" type="submit">LogOut</button>
+        </form>
+
+
+      </div>
+    </div>
+  </nav>
+
+
+
+  <div class="grid text-center">
+    <div class="row ">
+      {% for list in lists %}
+      <div class="col flex-container ">
+             
+        <div id="list_header">
+        <h1>{{ lists.index(list)+1 }}. {{ list["title"] }}</h1>
+        <hr class="new1">
+        <details>
+          <h3>Nitrogen -{{ list["N"] }} </h3>
+          <h3>Phosphorous-{{ list["P"] }} </h3>
+          <h3>Potassium-{{ list["K"] }} </h3>
+          <h3>Temprature-{{ list["temp"] }} </h3>
+          <h3>Ph of Water-{{ list["PH"] }} </h3>
+          <h3>Humidity-{{ list["Humdity"] }} </h3>
+          <h3>Rainfall-{{ list["RF"] }} </h3>
+          <h3>WaterLevel-{{ list["WL"] }} </h3>
+        
+        </details>
+          
+          <!-- <hr class="new1">
+          {% if list["crops"]%}
+          <details>
+            <h3>Predicted Crops are - {{ list["crops"] }} </h3>
+          
+          <hr class="new1">
+          </details>
+          {% endif %}
+          {% if list["suggestion"]%}
+          <details>
+            <h3>Predicted Crops are - {{ list["crops"] }} </h3>
+          
+          <hr class="new1">
+          </details>
+          {% endif %} -->
+          <hr class="new1">
+          <!-- <a href="/{{ user_id }}/list/{{ list[" list_id"] }}/update" class="btn btn-secondary">Update List</a> -->
+          <a href="/{{ user_id }}/list/{{ list["list_id"]}}/predict"><button type="button"class="btn btn-success list-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-amd" viewBox="0 0 16 16">
+              <path d="m.334 0 4.358 4.359h7.15v7.15l4.358 4.358V0H.334ZM.2 9.72l4.487-4.488v6.281h6.28L6.48 16H.2V9.72Z"/>
+            </svg>
+           Show Predictions
+          </button></a>
+          <a href="/{{ user_id }}/list/{{ list["list_id"]}}/update"><button type="button" class="btn btn-primary list-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-pencil-square" viewBox="0 0 16 16">
+              <path
+                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z">
+              </path>
+              <path fill-rule="evenodd"
+                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z">
+              </path>
+            </svg> UPDATE
+          </button></a>
+
+          <!-- <a href="/{{ user_id }}/list/{{ list[" list_id"] }}/delete" class="btn btn-secondary">Delete List</a> -->
+          <a href="/{{ user_id }}/list/{{ list["list_id"]}} /delete"><button type="button" class="btn btn-danger list-button ">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash"
+              viewBox="0 0 16 16">
+              <path
+                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z">
+              </path>
+              <path fill-rule="evenodd"
+                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z">
+              </path>
+            </svg>
+            DELETE
+          </button></a>
+
+          <!-- <a href="/{{ user_id }}/list/{{ list[" list_id"] }} /download">DOWNLOAD List</a> -->
+         
+
+        </div>
+
+        
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+{% extends 'basic1.html' %}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+
+
+
+<div class="container mt-2" >
+  <br>
+  <h1><strong>
+      <center>Crop Prediction</center>
+    </strong></h1>
+    <br><br>
+    
+    <div class="container col-md-7">
+    <div class="card text-white bg-info mb-3 ">
+
+        <form action="/predict" method="POST">
+        
+          <div class="container mt-4">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="">Nitrogen</label>
+                <input type="number" step="any" min="1" max="200" class="form-control" id="nitrogen" name="nitrogen" placeholder="Nitrogen">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="">Phosphorous</label>
+                <input type="number" class="form-control" step="any" min="1" max="200" name="phosphorus" placeholder="Phosphorous in soil">
+              </div>
+              
+              
+            </div>
+            <div class="form-row">
+              
+              <div class="form-group col-md-6">
+                <label for="">Potassium</label>
+                <input type="number" class="form-control" step="any" min="1" max="200" name="pottasium" placeholder="Potassium in soil" placeholder="eg: 50,60,70" required>
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="">Temperature</label>
+                <input type="number" class="form-control" step="any" min="1" max="65" name="temperature" placeholder="Temperature in degree" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="">Humidity</label>
+                <input type="number" class="form-control" step="any" min="1" max="100" name="humidity" placeholder="Humidity in percentage" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="">PH</label>
+                <input type="number" class="form-control" step="any" min="1" max="14" name="ph" placeholder="PH from 1-14" required>
+              </div>
+              
+            </div>
+            <div class="form-row">
+              
+              <div class="form-group col-md-6">
+                <label for="">Rainfall</label>
+                <input type="number" class="form-control" step="any" min="" max="" name="rainfall" placeholder="Rainfall">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="">Water Level</label>
+                <input type="number" class="form-control" step="any" min="" max="" name="Water Level" placeholder="Value for Water Level">
+              </div>
+
+              
+            </div>
+
+            <center>
+              <button type="submit"  class="btn btn-primary mb-4" value=" Submit ">Submit</button>
+              <!-- <div><a href="/register" class="btn btn-success btn-lg">Submit</a>    </div> -->
+            </center>
+          </div>
+        </form>
+
+        <!-- {{ prediction_text }} -->
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}
+
+
